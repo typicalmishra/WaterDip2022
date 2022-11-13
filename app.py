@@ -89,7 +89,7 @@ def convertToJson(arg):
 # THIS FUNCTION IS USED FOR CREATING A DICTIONARY FROM USER PASSED OBJECT
 
 
-def currTask(task):
+def makeTask(task):
     taskTitle = task['title']
     uniqueId = uuid.uuid1().int >> 64
     # uniqueId = 1
