@@ -17,14 +17,14 @@ def tasks():
         result['tasks'] = []
         if 'tasks' in content:
             for tsk in content['tasks']:
-                dic = currTask(tsk)
+                dic = makeTask(tsk)
                 allTasks[dic['id']] = dic
                 # allTasks.append(dic)
                 result['tasks'].append({'id': dic['id']})
             final = convertToJson(result)
             return Response(final, status=201, mimetype='application/json')
         else:
-            dic = currTask(content)
+            dic = makeTask(content)
             allTasks[dic['id']] = dic
             res = {'id': dic['id']}
             final = convertToJson(res)
