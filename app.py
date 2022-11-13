@@ -1,7 +1,6 @@
 from flask import Flask, request, Response
 import uuid
 import json
-import requests
 app = Flask(__name__)
 
 allTasks = {}
