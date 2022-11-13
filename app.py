@@ -4,14 +4,6 @@ import json
 import requests
 app = Flask(__name__)
 
-uniqueid = uuid.uuid1()
-
-
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
-
 allTasks = {}
 
 
@@ -42,7 +34,9 @@ def tasks():
         # print(content)
 
         for task in content['tasks']:
-            del allTasks[task['id']]
+            key = task['id']
+            if key in allTasks:
+                del allTasks[key]
 
         return Response(status=204, mimetype='application/json')
     else:
@@ -97,8 +91,8 @@ def convertToJson(arg):
 
 def currTask(task):
     taskTitle = task['title']
-    # uniqueId = uuid.uuid1().int >> 64
-    uniqueId = 1
+    uniqueId = uuid.uuid1().int >> 64
+    # uniqueId = 1
     dic = {"id": uniqueId, "title": taskTitle,
            "is_completed": False}
     # print(dic)
