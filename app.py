@@ -51,7 +51,7 @@ def tasks():
 # IN THIS ROUTE WE HAVE IMPLEMENTED FOLLOWING FUNCTIONALITY
 # GET SPECIFIC TASK, DELETE SPECIFIC TASK, UPDATE SPECIFIC TASK
 @app.route("/v1/tasks/<int:getId>", methods=["GET", "PUT", "DELETE"])
-def getTask(getId):
+def singleTask(getId):
     if request.method == "GET":
         if getId in allTasks:
             final = convertToJson(allTasks[getId])
